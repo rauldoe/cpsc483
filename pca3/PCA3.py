@@ -33,4 +33,11 @@ SumX = np.sum(X, axis =0)
 
 #print(normalized)
 covariance = np.matmul(normalized.transpose(), normalized)/(m)
-print(covariance)
+# print(covariance)
+eigenvalues, eigenvectors = np.linalg.eig(covariance)
+
+#print(eigenvalues, eigenvectors)
+
+X_pca = np.dot(X, eigenvectors)
+print(X_pca.shape)
+

@@ -33,15 +33,17 @@ SumX = np.sum(X, axis =0)
 # print(SumX/50)
 
 #print(normalized)
-covariance = np.matmul(normalized.transpose(), normalized)/(m)
+covariance = np.dot(normalized.transpose(), normalized)/(m)
 # print(covariance)
 eigenvalues, eigenvectors = np.linalg.eig(covariance)
 
-#print(eigenvalues, eigenvectors)
+# print(eigenvectors)
 
 X_pca = np.dot(normalized, eigenvectors)
-print(X_pca)
+#print(X_pca.shape)
 
 plt.scatter(X_pca[:,0], X_pca[:,0])
-plt.scatter(-X_pca[:,1], X_pca[:,1])
+plt.plot((0, eigenvectors[0][0]), (0, eigenvectors[1][0]))
+plt.plot((0, eigenvectors[0][1]), (0, eigenvectors[1][1]))
+#plt.scatter(-X_pca[:,0], X_pca[:,1])
 plt.show()

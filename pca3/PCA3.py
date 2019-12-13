@@ -8,6 +8,7 @@ Created on Thu Dec 12 18:25:34 2019
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.io #Used to load *.mat files
+import matplotlib.pyplot as plt
 
 datafile = 'PCAData.mat'
 points = scipy.io.loadmat( datafile )
@@ -38,6 +39,9 @@ eigenvalues, eigenvectors = np.linalg.eig(covariance)
 
 #print(eigenvalues, eigenvectors)
 
-X_pca = np.dot(X, eigenvectors)
-print(X_pca.shape)
+X_pca = np.dot(normalized, eigenvectors)
+print(X_pca)
 
+plt.scatter(X_pca[:,0], X_pca[:,0])
+plt.scatter(-X_pca[:,1], X_pca[:,1])
+plt.show()

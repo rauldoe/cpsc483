@@ -31,7 +31,6 @@ normalized = (X - meanX)/stdX
 SumX = np.sum(X, axis =0)
 # print(SumX/50)
 
-print(normalized)
-covariance = np.matmul(normalized.transpose(), normalized)/(m-1)
-
+#print(normalized)
+covariance = np.matmul(normalized.transpose(), normalized)/(m)
 print(covariance)
